@@ -9,63 +9,47 @@ namespace Snake
     internal class Snake
     {
         // Snake head is first in list
-        private List<SnakePart> parts;
-        private Direction direction;
-        
-        public enum Direction
+        public LinkedList<Position> Tail { get; }
+        public Direction Direction { get; private set; }
+
+        public Snake(Position pos)
         {
-            North,
-            East,
-            South,
-            West
+            Tail = new LinkedList<Position>();
+            Direction = Direction.East;
+
+            for (int i = 2; i >= 0; i--)
+            {
+                Tail.AddLast(new Position(pos.X + i, pos.Y));
+            }
         }
 
-        public Snake()
+        public Position HeadPosition()
         {
-            parts = new List<SnakePart>();
-            AddPart();
-            direction = Direction.East;
+            return Tail.First();
         }
 
-        public void AddPart()
+        public Position TailPosition()
         {
-            if (parts.Count > 0)
-                parts.Add(new SnakePart(5, 5));
+            return Tail.Last();
+        }
 
-            var lastPart = parts.Last();
-            int newX = lastPart.X;
-            int newY = lastPart.Y;
+        public void AddHead(Position pos)
+        {
+            Tail.AddFirst(pos);
+        }
 
-            if (direction == Direction.North)
-                newY--;
-            else if (direction == Direction.South)
-                newY++;
-            else if (direction == Direction.West)
-                newX++;
-            else if (direction == Direction.East)
-                newX--;
-
-            parts.Add(new SnakePart(newX, newY));
+        public void RemoveTail()
+        {
+            Tail.RemoveLast();
         }
 
         public void ChangeDirection(Direction dir)
         {
-            direction = dir;
-        }
-
-        public void Move()
-        {
-            foreach (SnakePart part in parts)
-            {
-                if (direction == Direction.North)
-                    part.Y--;
-                else if (direction == Direction.South)
-                    part.Y++;
-                else if (direction == Direction.East)
-                    part.X++;
-                else if (direction == Direction.West)
-                    part.X--;
-            }
+            if ((dir == Direction.North && Direction != Direction.South) ||
+                (dir == Direction.South && Direction != Direction.North) ||
+                (dir == Direction.West && Direction != Direction.East) ||
+                (dir == Direction.East && Direction != Direction.West))
+                Direction = dir;
         }
     }
 }

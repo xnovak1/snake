@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    internal class SnakePart
+    internal class Position
     {
-        public int X;
-        public int Y;
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public SnakePart(int x, int y)
+        public Position(int x, int y)
         {
             X = x;
             Y = y;

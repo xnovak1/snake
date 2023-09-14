@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    internal class Tile
+    internal enum Tile
     {
-        public override string ToString()
-        {
-            return " ";
-        }
+        Empty,
+        Wall,
+        Fruit,
+        Snake
     }
 }

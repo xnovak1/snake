@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    internal class Fruit : Tile
+    internal enum Direction
     {
-        public override string ToString()
-        {
-            return "$";
-        }
+        North,
+        East,
+        South,
+        West
     }
 }
