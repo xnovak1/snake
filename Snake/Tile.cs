@@ -8,5 +8,9 @@ namespace Snake
 {
     internal class Tile
     {
+        public override string ToString()
+        {
+            return " ";
+        }
     }
 }

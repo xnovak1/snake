@@ -8,5 +8,9 @@ namespace Snake
 {
     internal class Wall : Tile
     {
+        public override string ToString()
+        {
+            return "#";
+        }
     }
 }

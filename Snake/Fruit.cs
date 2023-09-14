@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    internal class Food : Tile
+    internal class Fruit : Tile
     {
+        public override string ToString()
+        {
+            return "$";
+        }
     }
 }

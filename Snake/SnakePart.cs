@@ -8,5 +8,13 @@ namespace Snake
 {
     internal class SnakePart
     {
+        public int X;
+        public int Y;
+
+        public SnakePart(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
     }
 }

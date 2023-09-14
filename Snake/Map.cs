@@ -10,5 +10,16 @@ namespace Snake
     {
         private const int Width = 10;
         private const int Height = 10;
+        private Random gen = new Random();
+
+        public Map()
+        {
+            ;
+        }
+
+        public void AddFruit()
+        {
+            ;
+        }
     }
 }
