@@ -8,8 +8,8 @@ namespace Snake
 {
     internal class Game
     {
-        private const int Width = 30;
-        private const int Height = 15;
+        private const int Width = 70;
+        private const int Height = 30;
         private const int refreshRate = 100;
 
         private Random gen = new Random();
@@ -147,22 +147,31 @@ namespace Snake
         {
             Console.Clear();
 
+            var toDraw = new StringBuilder();
+
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)
                 {
                     if (grid[i, j] == Tile.Empty)
-                        Console.Write(" ");
+                        toDraw.Append(" ");
+                        // Console.Write(" ");
                     else if (grid[i, j] == Tile.Snake)
-                        Console.Write("*");
+                        toDraw.Append("*");
+                    // Console.Write("*");
                     else if (grid[i, j] == Tile.Fruit)
-                        Console.Write("o");
+                        toDraw.Append("o");
+                    // Console.Write("o");
                     else if (grid[i, j] == Tile.Wall)
-                        Console.Write("#");
+                        toDraw.Append("#");
+                    // Console.Write("#");
                 }
 
-                Console.Write("\n");
+                toDraw.Append("\n");
+                // Console.Write("\n");
             }
+
+            Console.Write(toDraw.ToString());
         }
     }
 }
